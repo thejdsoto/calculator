@@ -27,12 +27,16 @@ function operate(num1, num2, operation) {
     }
 }
 
+let num1 = "";
+let num2 = "";
 let display = document.querySelector('.display p');
 let numBtn = document.querySelectorAll('.num')
 
 numBtn.forEach((e) => {
     e.addEventListener("click", () => {
         display.innerHTML += e.id;
+        num1 += e.id;
+        console.log(num1);  
     });
 })
 
