@@ -29,8 +29,10 @@ function operate(num1, num2, operation) {
 
 let num1 = "";
 let num2 = "";
+let operation = "";
 let display = document.querySelector('.display p');
-let numBtn = document.querySelectorAll('.num')
+let numBtn = document.querySelectorAll('.num');
+let optBtn = document.querySelectorAll('.opt');
 
 numBtn.forEach((e) => {
     e.addEventListener("click", () => {
@@ -38,5 +40,13 @@ numBtn.forEach((e) => {
         num1 += e.id;
         console.log(num1);  
     });
-})
+});
+
+optBtn.forEach((e) => {
+    e.addEventListener("click", () => {
+        operation = e.id;
+        console.log(operation);
+    });
+});
+
 
