@@ -1,0 +1,72 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container {
+    background-color: darkslategray;
+    width: 600px;
+    height: 720px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.display {
+    width: 80%;
+    height: 80px;
+    background-color: antiquewhite;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-size: 24px;
+}
+
+    .display p {
+        text-align: center;
+    }
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 48px;
+}
+
+    .buttons .digit {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+
+        .digit .column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+    .buttons .operation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+
+button {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+}
