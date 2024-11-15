@@ -30,20 +30,31 @@ function operate(num1, num2, operation) {
 let num1 = "";
 let num2 = "";
 let operation = "";
+let getNum1 = true;
 let display = document.querySelector('.display p');
 let numBtn = document.querySelectorAll('.num');
 let optBtn = document.querySelectorAll('.opt');
 
+
 numBtn.forEach((e) => {
     e.addEventListener("click", () => {
-        display.innerHTML += e.id;
-        num1 += e.id;
-        console.log(num1);  
+        if (getNum1) {
+            display.innerHTML += e.id;
+            num1 += e.id;
+            console.log(num1); 
+        } else {
+            display.innerHTML += e.id;
+            num2 += e.id;
+            console.log(num2);  
+        }
+ 
     });
 });
 
+
 optBtn.forEach((e) => {
     e.addEventListener("click", () => {
+        getNum1 = false;
         operation = e.id;
         console.log(operation);
     });
