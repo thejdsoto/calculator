@@ -26,3 +26,13 @@ function operate(num1, num2, operation) {
             return divide(num1, num2);
     }
 }
+
+let display = document.querySelector('.display p');
+let numBtn = document.querySelectorAll('.num')
+
+numBtn.forEach((e) => {
+    e.addEventListener("click", () => {
+        display.innerHTML += e.id;
+    });
+})
+
