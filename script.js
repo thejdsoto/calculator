@@ -34,7 +34,7 @@ let getNum1 = true;
 let display = document.querySelector('.display p');
 let numBtn = document.querySelectorAll('.num');
 let optBtn = document.querySelectorAll('.opt');
-
+let symbol = document.createElement('span');
 
 numBtn.forEach((e) => {
     e.addEventListener("click", () => {
@@ -51,11 +51,12 @@ numBtn.forEach((e) => {
     });
 });
 
-
 optBtn.forEach((e) => {
     e.addEventListener("click", () => {
         getNum1 = false;
         operation = e.id;
+        symbol.innerText = operation;
+        display.appendChild(symbol);
         console.log(operation);
     });
 });
