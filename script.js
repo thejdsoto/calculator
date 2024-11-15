@@ -16,13 +16,13 @@ function divide(num1, num2){
 
 function operate(num1, num2, operation) {
     switch(operation) {
-        case "add":
+        case "+":
             return add(num1, num2);
-        case "subtract":
+        case "-":
             return subtract(num1, num2);
-        case "multiply":
+        case "x":
             return multiply(num1, num2);
-        case "divide":
+        case "÷":
             return divide(num1, num2);
     }
 }
@@ -31,10 +31,12 @@ let num1 = "";
 let num2 = "";
 let operation = "";
 let getNum1 = true;
+let answer = 0;
 let display = document.querySelector('.display p');
 let numBtn = document.querySelectorAll('.num');
 let optBtn = document.querySelectorAll('.opt');
 let symbol = document.createElement('span');
+let equals = document.querySelector('.equals button');
 
 numBtn.forEach((e) => {
     e.addEventListener("click", () => {
@@ -59,6 +61,11 @@ optBtn.forEach((e) => {
         display.appendChild(symbol);
         console.log(operation);
     });
+});
+
+equals.addEventListener("click", () => {
+    answer = operate(parseInt(num1), parseInt(num2), operation);
+    display.innerHTML = answer;
 });
 
 
