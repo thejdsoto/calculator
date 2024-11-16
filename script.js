@@ -11,7 +11,17 @@ function multiply(num1, num2) {
 }
 
 function divide(num1, num2){
-    return Math.round((num1 / num2) * 100) / 100;
+    if (num2 === 0) { 
+        return "CANNOT DIVIDE BY ZERO!" 
+        num1 = "";
+        num2 = "";
+        getNum1 = true;
+        isAnswered = false;
+        hasDecimal = false;
+        display.innerHTML = "<p></p>"
+    } else {
+        return Math.round((num1 / num2) * 100) / 100;
+    }
 }
 
 function operate(num1, num2, operation) {
@@ -124,8 +134,8 @@ decimal.addEventListener("click", () => {
 // 4. if isAnswered === true && operation button is clicked after answer is displayed, clear num2 (verify logic if tama) - DONE
 // 5. clear button - DONE
 // 6. round offs - DONE
-// 7. error handling during division by 0
-// 8. decimal button functionality
+// 7. error handling during division by 0 - DONE
+// 8. decimal button functionality - DONE
 // ADDITIONAL FEATURES ONLY!: can push to main after #7
 // 9. keyboard support
 // 10. backspace button => undo one
