@@ -66,6 +66,15 @@ optBtn.forEach((e) => {
             symbol.innerText = operation;
             display.appendChild(symbol);
             console.log(operation);
+        } else if (num1 && num2) {
+            getNum1 = false;
+            answer = operate(parseInt(num1), parseInt(num2), operation);
+            operation = e.id;
+            symbol.innerText = operation;
+            display.innerHTML = answer;
+            display.appendChild(symbol);
+            isAnswered = true;
+            num2 = "";
         }
     });
 });
@@ -79,7 +88,7 @@ equals.addEventListener("click", () => {
 
 // TO DO
 // 1. answer goes to num1 when an operation button is clicked after answer is displayed - DONE
-// 2. clicking an operation button when two numbers are evaluated will mimic function of equals button
+// 2. clicking an operation button when two numbers are evaluated will mimic function of equals button - DONE
 // 3. catch when args to operate() are undefined and = button is clicked
 // 4. if isAnswered === true && operation button is clicked after answer is displayed, clear num2 (verify logic if tama)
 // 5. clear button
