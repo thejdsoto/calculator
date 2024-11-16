@@ -1,3 +1,19 @@
+let num1 = "";
+let num2 = "";
+let operation = "";
+let answer = 0;
+let getNum1 = true;
+let isAnswered = false;
+let hasDecimal = false;
+let display = document.querySelector('.display p');
+let numBtn = document.querySelectorAll('.num');
+let optBtn = document.querySelectorAll('.opt');
+let symbol = document.createElement('span');
+let equals = document.querySelector('.equals button');
+let clear = document.querySelector('.clear');
+let decimal = document.querySelector('.decimal');
+
+
 function add(num1, num2) {
     return Math.round((num1 + num2) * 100) / 100;
 }
@@ -12,13 +28,8 @@ function multiply(num1, num2) {
 
 function divide(num1, num2){
     if (num2 === 0) { 
+        clear();
         return "CANNOT DIVIDE BY ZERO!" 
-        num1 = "";
-        num2 = "";
-        getNum1 = true;
-        isAnswered = false;
-        hasDecimal = false;
-        display.innerHTML = "<p></p>"
     } else {
         return Math.round((num1 / num2) * 100) / 100;
     }
@@ -37,20 +48,16 @@ function operate(num1, num2, operation) {
     }
 }
 
-let num1 = "";
-let num2 = "";
-let operation = "";
-let getNum1 = true;
-let isAnswered = false;
-let answer = 0;
-let display = document.querySelector('.display p');
-let numBtn = document.querySelectorAll('.num');
-let optBtn = document.querySelectorAll('.opt');
-let symbol = document.createElement('span');
-let equals = document.querySelector('.equals button');
-let clear = document.querySelector('.clear');
-let decimal = document.querySelector('.decimal');
-let hasDecimal = false;
+function clearData() {
+    num1 = "";
+    num2 = "";
+    operation = "";
+    answer = 0;
+    getNum1 = true;
+    isAnswered = false;
+    hasDecimal = false;
+    display.innerHTML = "<p></p>"
+}
 
 numBtn.forEach((e) => {
     e.addEventListener("click", () => {
@@ -105,12 +112,7 @@ equals.addEventListener("click", () => {
 });
 
 clear.addEventListener("click", () => {
-    num1 = "";
-    num2 = "";
-    getNum1 = true;
-    isAnswered = false;
-    hasDecimal = false;
-    display.innerHTML = "<p></p>"
+    clearData();
 });
 
 decimal.addEventListener("click", () => {
