@@ -60,11 +60,13 @@ numBtn.forEach((e) => {
 
 optBtn.forEach((e) => {
     e.addEventListener("click", () => {
-        getNum1 = false;
-        operation = e.id;
-        symbol.innerText = operation;
-        display.appendChild(symbol);
-        console.log(operation);
+        if (num1 && !num2) {
+            getNum1 = false;
+            operation = e.id;
+            symbol.innerText = operation;
+            display.appendChild(symbol);
+            console.log(operation);
+        }
     });
 });
 
@@ -76,14 +78,15 @@ equals.addEventListener("click", () => {
 });
 
 // TO DO
-// 1. answer goes to num1 when an operation button is clicked after answer is displayed
-// 2. catch when args to operate() are undefined and = button is clicked
-// 3. if isAnswered === true && operation button is clicked after answer is displayed, clear num2 (verify logic if tama)
-// 4. clear button
-// 5. round offs
-// 6. error handling during division by 0
-// 7. decimal button functionality
+// 1. answer goes to num1 when an operation button is clicked after answer is displayed - DONE
+// 2. clicking an operation button when two numbers are evaluated will mimic function of equals button
+// 3. catch when args to operate() are undefined and = button is clicked
+// 4. if isAnswered === true && operation button is clicked after answer is displayed, clear num2 (verify logic if tama)
+// 5. clear button
+// 6. round offs
+// 7. error handling during division by 0
+// 8. decimal button functionality
 // ADDITIONAL FEATURES ONLY!: can push to main after #7
-// 8. keyboard support
-// 9. backspace button => undo one
+// 9. keyboard support
+// 10. backspace button => undo one
 
