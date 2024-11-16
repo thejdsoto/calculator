@@ -64,11 +64,9 @@ numBtn.forEach((e) => {
         if (getNum1 && isAnswered === false) {
             display.innerHTML += e.id;
             num1 += e.id;
-            console.log(num1); 
         } else if (getNum1 === false && isAnswered === false) {
             display.innerHTML += e.id;
-            num2 += e.id;
-            console.log(num2);  
+            num2 += e.id; 
         } else if (getNum1 === false && isAnswered === true) {
             num1 = answer;
             display.innerHTML += e.id;
@@ -86,7 +84,6 @@ optBtn.forEach((e) => {
             operation = e.id;
             symbol.innerText = operation;
             display.appendChild(symbol);
-            console.log(operation);
         } else if (num1 && num2) {
             hasDecimal = false;
             getNum1 = false;
@@ -119,13 +116,11 @@ decimal.addEventListener("click", () => {
     if (getNum1 && isAnswered === false && hasDecimal === false) {
         display.innerHTML += ".";
         num1 += ".";
-    } else if (getNum1 === false && isAnswered === false && hasDecimal === false) {
-        display.innerHTML += ".";
-        num2 += ".";
-    } else if (getNum1 === false && isAnswered === true && hasDecimal === false) {
+    } else if ((getNum1 === false && isAnswered === false && hasDecimal === false) || ((getNum1 === false && isAnswered === true && hasDecimal === false)))  {
         display.innerHTML += ".";
         num2 += ".";
     }
+    
     hasDecimal = true;
 });
 
