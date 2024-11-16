@@ -39,6 +39,8 @@ let optBtn = document.querySelectorAll('.opt');
 let symbol = document.createElement('span');
 let equals = document.querySelector('.equals button');
 let clear = document.querySelector('.clear');
+let decimal = document.querySelector('.decimal');
+let hasDecimal = false;
 
 numBtn.forEach((e) => {
     e.addEventListener("click", () => {
@@ -62,14 +64,16 @@ numBtn.forEach((e) => {
 optBtn.forEach((e) => {
     e.addEventListener("click", () => {
         if (num1 && !num2) {
+            hasDecimal = false;
             getNum1 = false;
             operation = e.id;
             symbol.innerText = operation;
             display.appendChild(symbol);
             console.log(operation);
         } else if (num1 && num2) {
+            hasDecimal = false;
             getNum1 = false;
-            answer = operate(parseInt(num1), parseInt(num2), operation);
+            answer = operate(parseFloat(num1), parseFloat(num2), operation);
             operation = e.id;
             symbol.innerText = operation;
             display.innerHTML = answer;
@@ -82,7 +86,8 @@ optBtn.forEach((e) => {
 
 equals.addEventListener("click", () => {
     if (num1 && num2) {
-        answer = operate(parseInt(num1), parseInt(num2), operation);
+        hasDecimal = false;
+        answer = operate(parseFloat(num1), parseFloat(num2), operation);
         display.innerHTML = answer;
         isAnswered = true;
         num2 = "";
@@ -94,7 +99,22 @@ clear.addEventListener("click", () => {
     num2 = "";
     getNum1 = true;
     isAnswered = false;
+    hasDecimal = false;
     display.innerHTML = "<p></p>"
+});
+
+decimal.addEventListener("click", () => {
+    if (getNum1 && isAnswered === false && hasDecimal === false) {
+        display.innerHTML += ".";
+        num1 += ".";
+    } else if (getNum1 === false && isAnswered === false && hasDecimal === false) {
+        display.innerHTML += ".";
+        num2 += ".";
+    } else if (getNum1 === false && isAnswered === true && hasDecimal === false) {
+        display.innerHTML += ".";
+        num2 += ".";
+    }
+    hasDecimal = true;
 });
 
 // TO DO
@@ -103,7 +123,7 @@ clear.addEventListener("click", () => {
 // 3. catch when args to operate() are undefined and = button is clicked - DONE
 // 4. if isAnswered === true && operation button is clicked after answer is displayed, clear num2 (verify logic if tama) - DONE
 // 5. clear button - DONE
-// 6. round offs
+// 6. round offs - DONE
 // 7. error handling during division by 0
 // 8. decimal button functionality
 // ADDITIONAL FEATURES ONLY!: can push to main after #7
