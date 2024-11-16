@@ -80,16 +80,18 @@ optBtn.forEach((e) => {
 });
 
 equals.addEventListener("click", () => {
-    answer = operate(parseInt(num1), parseInt(num2), operation);
-    display.innerHTML = answer;
-    isAnswered = true;
-    num2 = "";
+    if (num1 && num2) {
+        answer = operate(parseInt(num1), parseInt(num2), operation);
+        display.innerHTML = answer;
+        isAnswered = true;
+        num2 = "";
+    }
 });
 
 // TO DO
 // 1. answer goes to num1 when an operation button is clicked after answer is displayed - DONE
 // 2. clicking an operation button when two numbers are evaluated will mimic function of equals button - DONE
-// 3. catch when args to operate() are undefined and = button is clicked
+// 3. catch when args to operate() are undefined and = button is clicked - DONE
 // 4. if isAnswered === true && operation button is clicked after answer is displayed, clear num2 (verify logic if tama)
 // 5. clear button
 // 6. round offs
