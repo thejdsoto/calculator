@@ -38,6 +38,7 @@ let numBtn = document.querySelectorAll('.num');
 let optBtn = document.querySelectorAll('.opt');
 let symbol = document.createElement('span');
 let equals = document.querySelector('.equals button');
+let clear = document.querySelector('.clear');
 
 numBtn.forEach((e) => {
     e.addEventListener("click", () => {
@@ -88,12 +89,20 @@ equals.addEventListener("click", () => {
     }
 });
 
+clear.addEventListener("click", () => {
+    num1 = "";
+    num2 = "";
+    getNum1 = true;
+    isAnswered = false;
+    display.innerHTML = "<p></p>"
+});
+
 // TO DO
 // 1. answer goes to num1 when an operation button is clicked after answer is displayed - DONE
 // 2. clicking an operation button when two numbers are evaluated will mimic function of equals button - DONE
 // 3. catch when args to operate() are undefined and = button is clicked - DONE
-// 4. if isAnswered === true && operation button is clicked after answer is displayed, clear num2 (verify logic if tama)
-// 5. clear button
+// 4. if isAnswered === true && operation button is clicked after answer is displayed, clear num2 (verify logic if tama) - DONE
+// 5. clear button - DONE
 // 6. round offs
 // 7. error handling during division by 0
 // 8. decimal button functionality
